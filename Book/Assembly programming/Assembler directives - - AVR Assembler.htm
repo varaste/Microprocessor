@@ -1,0 +1,1008 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%; overflow: hidden;"><head>
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<title>Assembler directives -  - AVR Assembler</title><meta content="DocBook XSL Stylesheets V1.78.1" name="generator"><link rel="home" href="http://www.atmel.com/webdoc/avrassembler/index.html" title="AVR Assembler"><link rel="up" href="http://www.atmel.com/webdoc/avrassembler/index.html" title="AVR Assembler"><link rel="prev" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_Syntax.html" title="AVR Assembler Syntax"><link rel="next" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.html" title="AVR Assembler Preprocessor"><meta content="Assembler directives" name="Section-title"><script type="text/javascript" async="" src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/ga.js"></script><script type="text/javascript">
+			//The id for tree cookie
+			var treeCookieId = "treeview-36481";
+			var language = "en";
+			var w = new Object();
+			//Localization
+			txt_filesfound = 'Results';
+			txt_enter_at_least_1_char = "You must enter at least one character.";
+			txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+			txt_please_wait = "Please wait. Search in progress...";
+			txt_results_for = "Results for: ";
+		</script><link type="image/x-icon" href="http://www.atmel.com/webdoc/favicon.ico" rel="shortcut icon"><link href="Assembler%20directives%20-%20-%20AVR%20Assembler_files/positioning.css" type="text/css" rel="stylesheet"><link href="Assembler%20directives%20-%20-%20AVR%20Assembler_files/jquery-ui-1.css" type="text/css" rel="stylesheet"><link href="Assembler%20directives%20-%20-%20AVR%20Assembler_files/jquery.css" type="text/css" rel="stylesheet"><style type="text/css">
+			#noscript{
+			font-weight:bold;
+			background-color:#55AA55;
+			font-weight:bold;
+			height:25spx;
+			z-index:3000;
+			top:0px;
+			width:100%;
+			position:relative;
+			border-bottom:solid 5px black;
+			text-align:center;
+			color:white;
+			}
+			
+			input{
+			margin-bottom:5px;
+			margin-top:2px;
+			}
+			.folder{
+			display:block;
+			height:22px;
+			padding-left:20px;
+			background:transparent url(../common/jquery/treeview/images/folder.gif) 0 0px no-repeat;
+			}
+			.dochome{
+			display:block;
+			margin:10px 0 0 0;
+			padding-left:20px;
+			background:transparent url(../common/images/Library.png) 0 0px no-repeat;
+			}
+			.root{
+			display:block;
+			margin:10px 0 0 2px;
+			padding-left:20px;
+			background:transparent url(../common/images/Book_Open.png) 0 0px no-repeat;
+			}
+			.dochome a,
+			.root a {
+			text-decoration:none;
+			font-size:12px;
+			color:#517291;
+			}
+			span.contentsTab{
+			padding-left:20px;
+			background:url(../common/images/toc-icon.png) no-repeat 0 center;
+			}
+			span.searchTab{
+			padding-left:20px;
+			background:url(../common/images/search-icon.png) no-repeat 0 center;
+			}
+			
+			/* Overide jquery treeview's defaults for ul. */
+			.treeview ul{
+			background-color:transparent;
+			margin-top:4px;
+			}
+			#webhelp-currentid{
+			background-color:#D8D8D8 !important;
+			}
+			.treeview .hover{
+			color:black;
+			}
+			.filetree li span a{
+			text-decoration:none;
+			font-size:12px;
+			color:#517291;
+			}
+			
+			.filetree span.file {
+			background: url(../common/images/Document_Text.png) 0 0 no-repeat;
+			}
+			
+			/* Override jquery-ui's default css customizations. These are supposed to take precedence over those.*/
+			.ui-widget-content{
+			border:0px;
+			background:none;
+			color:none;
+			}
+			.ui-widget-header{
+			color:#e9e8e9;
+			border-left:1px solid #e5e5e5;
+			border-right:1px solid #e5e5e5;
+			border-bottom:1px solid #bbc4c5;
+			border-top:4px solid #e5e5e5;
+			border:medium none;
+			background:#F4F4F4; /* old browsers */
+			background:-moz-linear-gradient(top, #F4F4F4 0%, #E6E4E5 100%); /* firefox */
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #F4F4F4), color-stop(100%, #E6E4E5)); /* webkit */
+			font-weight:none;
+			}
+			.ui-widget-header a{
+			color:none;
+			}
+			.ui-state-default,
+			.ui-widget-content .ui-state-default,
+			.ui-widget-header .ui-state-default{
+			border:none;
+			background:none;
+			font-weight:none;
+			color:none;
+			}
+			.ui-state-default a,
+			.ui-state-default a:link,
+			.ui-state-default a:visited{
+			color:black;
+			text-decoration:none;
+			}
+			.ui-state-hover,
+			.ui-widget-content .ui-state-hover,
+			.ui-widget-header .ui-state-hover,
+			.ui-state-focus,
+			.ui-widget-content .ui-state-focus,
+			.ui-widget-header .ui-state-focus{
+			border:none;
+			background:none;
+			font-weight:none;
+			color:none;
+			}
+			
+			.ui-state-active,
+			.ui-widget-content .ui-state-active,
+			.ui-widget-header .ui-state-active{
+			border:none;
+			background:none;
+			font-weight:none;
+			color:none;
+			}
+			.ui-state-active a,
+			.ui-state-active a:link,
+			.ui-state-active a:visited{
+			color:black;
+			text-decoration:none;
+			background:#C6C6C6; /* old browsers */
+			background:-moz-linear-gradient(top, #C6C6C6 0%, #D8D8D8 100%); /* firefox */
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #C6C6C6), color-stop(100%, #D8D8D8)); /* webkit */
+			-webkit-border-radius:15px;
+			-moz-border-radius:10px;
+			border:1px solid #f1f1f1;
+			}
+			.ui-corner-all{
+			border-radius:0 0 0 0;
+			}
+			
+			.ui-tabs{
+			padding:.2em;
+			}
+			.ui-tabs .ui-tabs-panel {
+			padding-top: 6px;
+			}
+			.ui-tabs .ui-tabs-nav li{
+			top:0px;
+			margin:-2px 0 1px;
+			text-transform:uppercase;
+			font-size:10.5px;
+			}
+			.ui-tabs .ui-tabs-nav li a{
+			padding:.25em 2em .25em 1em;
+			margin:.5em;
+			text-shadow:0 1px 0 rgba(255, 255, 255, .5);
+			}
+			/**
+			*	Basic Layout Theme
+			* 
+			*	This theme uses the default layout class-names for all classes
+			*	Add any 'custom class-names', from options: paneClass, resizerClass, togglerClass
+			*/
+			
+			.ui-layout-resizer{ /* all 'resizer-bars' */
+			background:#DDD;
+			top:100px
+			}
+			
+			.ui-layout-toggler{ /* all 'toggler-buttons' */
+			background:#AAA;
+			}
+		</style><!--[if IE]>
+	<link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+	<![endif]--><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/browserDetect.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/jquery-1.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/jquery_004.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/jquery_002.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/jquery_003.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/jquery.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/l10n.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/htmlFileInfoList.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/nwSearchFnt.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/en_stemmer.js" type="text/javascript"><script src="search/index-1.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/index-2.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/index-3.js" type="text/javascript"><!----></script><meta name="date" content=""><meta name="dc.date.created" content=""><link rel="stylesheet" type="text/css" href="Assembler%20directives%20-%20-%20AVR%20Assembler_files/docbook.css"><link media="print" rel="stylesheet" type="text/css" href="Assembler%20directives%20-%20-%20AVR%20Assembler_files/print.css"><script type="text/javascript">
+				  var _gaq = _gaq || [];
+				  _gaq.push(['_setAccount', 'UA-41389295-1']);
+				  _gaq.push(['_trackPageview']);
+
+				  (function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				  })();
+		</script></head><body class="ui-layout-container" style="position: relative; height: 100%; overflow: hidden; margin: 0px; padding: 0px; border: medium none;"><noscript><link rel="stylesheet" type="text/css" href="../common/css/print.css" /><div id="noscript">JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.</div></noscript><div id="header" style="position: absolute; margin: 0px; top: 0px; bottom: auto; left: 0px; right: 0px; width: auto; z-index: 0; height: 98px; display: block; visibility: visible;" class="ui-layout-pane ui-layout-pane-north"><a href="http://www.atmel.com/webdoc"><img id="logo" alt="Atmel Logo" src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/logo.png"></a><h1>AVR Assembler<br>Assembler directives</h1><div id="navheader"><!----><table class="navLinks"><tbody><tr><td><a title="Hide TOC tree" tabindex="5" class="pointLeft" onclick="myLayout.toggle('west')" href="#" id="showHideButton">Sidebar
+                            </a></td><td><a tabindex="5" class="navLinkPrevious" accesskey="p" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_Syntax.html">Prev</a>&nbsp;
+                                    |
+                                    <a tabindex="5" class="navLinkNext" accesskey="n" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.html">Next</a></td></tr></tbody></table></div></div><div id="content" style="position: absolute; margin: 0px; left: 284px; right: 0px; top: 99px; bottom: 0px; height: 636px; width: 1514px; z-index: 0; display: block; visibility: visible;" class="ui-layout-pane ui-layout-pane-center"><!----><div class="chapter"><div xmlns="" class="titlepage"><div><div><h1 xmlns="http://www.w3.org/1999/xhtml" class="title"><a id="avrassembler.wb_directives">Assembler directives</a></h1></div></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="informaltable"><table xmlns="http://www.w3.org/1999/xhtml" border="1"><colgroup><col><col></colgroup><thead><tr><th>
+                  <span class="bold"><strong>Directive</strong></span>
+               </th><th>
+                  <span class="bold"><strong>Description</strong></span>
+               </th></tr></thead><tbody><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.BYTE" title="BYTE - reserve bytes for a variable">BYTE</a>
+                  </p>
+               </td><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.BYTE" title="BYTE - reserve bytes for a variable">Reserve byte(s) to a variable.</a>
+                  </p>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.CSEG" title="CSEG - Code segment">CSEG</a>
+                  </p>
+               </td><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.CSEG" title="CSEG - Code segment">Code Segment</a>
+                  </p>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.CSEGSIZE" title="CSEGSIZE - Program Memory Size">CSEGSIZE</a>
+                  </p>
+               </td><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.CSEGSIZE" title="CSEGSIZE - Program Memory Size">Program memory
+          size</a>
+                  </p>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DB" title="DB - Define constant byte(s) in program memory and EEPROM">DB</a>
+                  </p>
+               </td><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DB" title="DB - Define constant byte(s) in program memory and EEPROM">Define constant
+          byte(s)</a>
+                  </p>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DEF" title="DEF - Set a symbolic name on a register">DEF</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DEF" title="DEF - Set a symbolic name on a register">Define a symbolic name on a
+          register</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DSEG" title="DSEG - Data Segment">DSEG</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DSEG" title="DSEG - Data Segment">Data Segment</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DW" title="DW - Define constant word(s) in program memory and EEPROM">DW</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DW" title="DW - Define constant word(s) in program memory and EEPROM">Define Constant word(s)</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ENDMACRO" title="ENDM, ENDMACRO - End macro">ENDM, ENDMACRO</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ENDMACRO" title="ENDM, ENDMACRO - End macro">EndMacro</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.EQU" title="EQU - Set a symbol equal to an expression">EQU</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.EQU" title="EQU - Set a symbol equal to an expression">Set a symbol equal to an
+          expression</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ESEG" title="ESEG - EEPROM Segment">ESEG</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ESEG" title="ESEG - EEPROM Segment">EEPROM Segment</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.EXIT" title="EXIT - Exit this file">EXIT</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.EXIT" title="EXIT - Exit this file">Exit from file</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.INCLUDE" title="INCLUDE - Include another file">INCLUDE</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.INCLUDE" title="INCLUDE - Include another file">Read source from another
+          file</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.LIST" title="LIST - Turn the listfile generation on">LIST</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.LIST" title="LIST - Turn the listfile generation on">Turn listfile generation
+          on</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.LISTMAC" title="LISTMAC - Turn macro expansion on">LISTMAC</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.LISTMAC" title="LISTMAC - Turn macro expansion on">Turn Macro expansion in list file
+          on</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.MACRO" title="MACRO - Begin macro">MACRO</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.MACRO" title="MACRO - Begin macro">Begin Macro</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.NOLIST" title="NOLIST - Turn listfile generation off">NOLIST</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.NOLIST" title="NOLIST - Turn listfile generation off">Turn listfile generation
+          off</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ORG" title="ORG - Set program origin">ORG</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ORG" title="ORG - Set program origin">Set program origin</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.SET" title="SET - Set a symbol equal to an expression">SET</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.SET" title="SET - Set a symbol equal to an expression">Set a symbol to an
+          expression</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ELSE" title="&gt;ELIF,ELSE - conditional assembly">ELSE,ELIF</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ELSE" title="&gt;ELIF,ELSE - conditional assembly">Conditional assembly</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ENDIF" title="ENDIF - conditional assembly">ENDIF</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ENDIF" title="ENDIF - conditional assembly">Conditional assembly</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ERROR" title="ERROR- Outputs an error message string">ERROR</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ERROR" title="ERROR- Outputs an error message string">Outputs an error message</a>
+               </td></tr><tr><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.IFDEF" title="IF,IFDEF,IFNDEF - conditional assembly">IF,IFDEF,IFNDEF</a>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.IFDEF" title="IF,IFDEF,IFNDEF - conditional assembly">Conditional assembly</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.MESSAGE" title="MESSAGE - Output a message string">MESSAGE</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.MESSAGE" title="MESSAGE - Output a message string">Outputs a message
+          string</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DD" title="DD - Define constant doubleword(s) in program memory and EEPROM">DD</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DD" title="DD - Define constant doubleword(s) in program memory and EEPROM">Define Doubleword</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DQ" title="DQ - Define constant quadword(s) in program memory and EEPROM">DQ</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DQ" title="DQ - Define constant quadword(s) in program memory and EEPROM">Define Quadword</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.UNDEF" title="UNDEF - Undefine a register symbolic name">UNDEF</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.UNDEF" title="UNDEF - Undefine a register symbolic name">Undefine register symbol</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.WARNING" title="WARNING - Outputs a warning message string">WARNING</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.WARNING" title="WARNING - Outputs a warning message string">Outputs a warning
+          message</a>
+               </td></tr><tr><td>
+                  <p>
+                     <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.OVERLAP" title="OVERLAP/NOOVERLAP - Set up overlapping section">OVERLAP/NOOVERLAP</a>
+                  </p>
+               </td><td>
+                  <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.OVERLAP" title="OVERLAP/NOOVERLAP - Set up overlapping section">Set up overlapping
+          section</a>
+               </td></tr></tbody></table></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title"><a id="avrassembler.wb_directives">Note</a></h3><p><a id="avrassembler.wb_directives">Note that all directives must be preceded by a period.</a></p></div><h2><a id="avrassembler.wb_directives.BYTE">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.BYTE.abbrev">BYTE - reserve bytes
+  for a variable</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.BYTE"></a><p><a class="indexterm" id="VsIde.Assembler.Directives.BYTE">The BYTE directive reserves memory resources in the SRAM or EEPROM. In
+  order to be able to refer to the reserved location, the BYTE directive
+  should be preceded by a label. The directive takes one parameter, which is
+  the number of bytes to reserve. The directive can not be used within a Code
+  segment (see directives </a><a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ESEG" title="ESEG - EEPROM Segment">ESEG</a>, <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.CSEG" title="CSEG - Code segment">CSEG</a>, <a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DSEG" title="DSEG - Data Segment">DSEG</a>) .Note that a parameter must be
+  given. The allocated bytes are not initialized.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>LABEL: .BYTE expression</p><p>
+      <span class="bold"><strong>Example:</strong></span> 
+      </p><pre class="programlisting">.DSEG 
+var1:  .BYTE 1 ; reserve 1 byte to var1 
+table: .BYTE tab_size ; reserve tab_size bytes
+
+.CSEG 
+ldi r30,low(var1) ; Load Z register low 
+ldi r31,high(var1) ; Load Z register high 
+ld r1,Z ; Load VAR1 into register 1</pre><p>
+   </p><h2><a id="avrassembler.wb_directives.CSEG">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.CSEG.abbrev">CSEG - Code segment</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.CSEG"><p>The CSEG directive defines the start of a Code Segment. An Assembler
+  file can consist of several Code Segments, which are concatenated into one
+  Code Segment when assembled. The BYTE directive can not be used within a
+  Code Segment. The default segment type is Code. The Code Segments have their
+  own location counter which is a word counter. The ORG directive can be used
+  to place code and constants at specific locations in the Program memory. The
+  directive does not take any parameters.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.CSEG</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+   </p><p>
+      </p><pre class="programlisting">.DSEG ; Start data segment 
+vartab: .BYTE 4 ; Reserve 4 bytes in SRAM
+
+.CSEG ; Start code segment 
+const: .DW 2 ; Write 0x0002 in prog.mem. 
+mov r1,r0 ; Do something</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.CSEG"></a><a id="avrassembler.wb_directives.CSEGSIZE">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.CSEGSIZE.abbrev">CSEGSIZE - Program Memory Size</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.CSEGSIZE"><p>
+      <span class="productname">AT94K</span> devices have a user configurable
+  memory partition between the AVR Program memory and the data memory. The
+  program and data SRAM is divided into three blocks: 10K x 16 dedicated
+  program SRAM, 4K x 8 dedicated data SRAM, and 6K x 16 or 12K x 8
+  configurable SRAM which may be swapped between program and data memory
+  spaces in 2K x 16 or 4K x 8 partitions. This directive is used to specify
+  the size of the program memory block.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.CSEGSIZE = 10 | 12 | 14 | 16</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.CSEGSIZE = 12 ; Specifies the program meory size as 12K x 16</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.CSEGSIZE"></a><a id="avrassembler.wb_directives.DB">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.DB.abbrev">DB - Define constant byte(s) in program memory and
+  EEPROM</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.DB"><p>The DB directive reserves memory resources in the program memory or
+  the EEPROM memory. In order to be able to refer to the reserved locations,
+  the DB directive should be preceded by a label. The DB directive takes a
+  list of expressions, and must contain at least one expression. The DB
+  directive must be placed in a Code Segment or an EEPROM Segment.</p><p>The expression list is a sequence of expressions, delimited by commas.
+  Each expression must evaluate to a number between -128 and 255. If the
+  expression evaluates to a negative number, the 8 bits twos complement of the
+  number will be placed in the program memory or EEPROM memory
+  location.</p><p>If the DB directive is given in a Code Segment and the expressionlist
+  contains more than one expression, the expressions are packed so that two
+  bytes are placed in each program memory word. <span class="emphasis"><em>If the
+  expressionlist contains an odd number of expressions, the last expression
+  will be placed in a program memory word of its own, even if the next line in
+  the assemby code contains a DB directive.</em></span> The unused half of the
+  program word is set to zero. A warning is given, in order to notify the user
+  that an extra zero byte is added to the .DB statement</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>LABEL: .DB expressionlist</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.CSEG 
+consts: .DB 0, 255, 0b01010101, -128, 0xaa
+
+.ESEG 
+const2: .DB 1,2,3</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.DB"></a><a id="avrassembler.wb_directives.DEF">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.DEF.abbrev">DEF - Set a symbolic name on a register</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.DEF"><p>The DEF directive allows the registers to be referred to through
+  symbols. A defined symbol can be used in the rest of the program to refer to
+  the register it is assigned to. A register can have several symbolic names
+  attached to it. A symbol can be redefined later in the program.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.DEF Symbol=Register</p><p>
+      <span class="bold"><strong>Example:</strong></span> 
+      </p><pre class="programlisting">.DEF temp=R16 
+.DEF ior=R0
+
+.CSEG 
+ldi temp,0xf0 ; Load 0xf0 into temp register 
+in ior,0x3f ; Read SREG into ior register 
+eor temp,ior ; Exclusive or temp and ior</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.DEF"></a><a id="avrassembler.wb_directives.UNDEF">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.UNDEF.abbrev">UNDEF - Undefine a register symbolic
+  name</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.UNDEF"></a><p><a class="indexterm" id="VsIde.Assembler.Directives.UNDEF">'The UNDEF directive is used to undefine a symbol previously defined
+  with the </a><a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DEF" title="DEF - Set a symbolic name on a register">DEF</a> directive. This provides a way to
+  obtain a simple scoping of register definitions, to avoid warnings about
+  register reuse.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.UNDEF symbol</p><p>
+      <span class="bold"><strong>Example:</strong></span> 
+      </p><pre class="programlisting">.DEF var1 = R16 
+ldi var1, 0x20 
+... ; do something more with var1 
+.UNDEF var1 
+
+.DEF var2 = R16 ; R16 can now be reused without warning.</pre><p>
+   </p><h2><a id="avrassembler.wb_directives.DSEG">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.DSEG.abbrev">DSEG - Data Segment</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.DSEG"><p>The DSEG directive defines the start of a Data segment. An assembler
+  source file can consist of several data segments, which are concatenated
+  into a single data segment when assembled. A data segment will normally only
+  consist of BYTE directives (and labels). The Data Segments have their own
+  location counter which is a byte counter. The ORG directive can be used to
+  place the variables at specific locations in the SRAM. The directive does
+  not take any parameters.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.DSEG</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.DSEG ; Start data segment 
+var1: .BYTE 1 ; reserve 1 byte to var1 
+table: .BYTE tab_size ; reserve tab_size bytes.
+
+.CSEG 
+ldi r30,low(var1) ; Load Z register low 
+ldi r31,high(var1) ; Load Z register high 
+ld r1,Z ; Load var1 into register 1</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.DSEG"></a><a id="avrassembler.wb_directives.DW">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.DW.abbrev">DW - Define constant word(s) in program memory and
+  EEPROM</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.DW"><p>The DW directive reserves memory resources in the program memory or
+  the EEPROM memory. In order to be able to refer to the reserved locations,
+  the DW directive should be preceded by a label. The DW directive takes a
+  list of expressions, and must contain at least one expression. The DB
+  directive must be placed in a Code Segment or an EEPROM Segment.</p><p>The expression list is a sequence of expressions, delimited by commas.
+  Each expression must evaluate to a number between -32768 and 65535. If the
+  expression evaluates to a negative number, the 16 bits two's complement of
+  the number will be placed in the program memory or EEPROM memory
+  location.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>LABEL: .DW expressionlist</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.CSEG 
+varlist: .DW 0, 0xffff, 0b1001110001010101, -32768, 65535
+
+.ESEG 
+eevarlst: .DW 0,0xffff,10</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.DW"></a><a id="avrassembler.wb_directives.DD">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.DD.abbrev">DD - Define constant doubleword(s) in program memory and
+  EEPROM</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.DD"></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.DD"></a><a id="avrassembler.wb_directives.DQ">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.DQ.abbrev">DQ - Define constant quadword(s) in program memory and
+  EEPROM</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.DQ"></a><p><a class="indexterm" id="VsIde.Assembler.Directives.DQ">These directives are very similar to the </a><a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DW" title="DW - Define constant word(s) in program memory and EEPROM">DW</a>
+  directive, except they are used to define 32-bit (doubleword) and 64-bit
+  (quadword) respectively. The data layout in memory is strictly
+  little-endian.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>LABEL: .DD expressionlist</p><p>LABEL: .DQ expressionlist</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.CSEG 
+varlist: .DD 0, 0xfadebabe, -2147483648, 1 &lt;&lt; 30
+
+.ESEG 
+eevarlst: .DQ 0,0xfadebabedeadbeef, 1 &lt;&lt; 62</pre><p>
+   </p><h2><a id="avrassembler.wb_directives.ELSE">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.ELSE.abbrev">&gt;ELIF,ELSE - conditional assembly</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.ELIF"></a><a class="indexterm" id="VsIde.Assembler.Directives.ELSE"><p>.ELIF will include code until the corresponding ENDIF of the next ELIF
+  at the same level if the expression is true, and both the initial .IF clause
+  and all following .ELIF clauses are false.</p><p>.ELSE will include code until the corresponding .ENDIF if the
+  initial.IF clause and all .ELIF clauses (if any) all are false.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.ELIF&lt;expression&gt;</p><p>.ELSE</p><p>.IFDEF &lt;symbol&gt; |.IFNDEF &lt;symbol&gt;</p><p>…</p><p>.ELSE | .ELIF&lt;expression&gt;</p><p>…</p><p>.ENDIF</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.IFDEF DEBUG 
+.MESSAGE "Debugging.." 
+.ELSE 
+.MESSAGE "Release.." 
+.ENDIF</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.ELSE"></a><a id="avrassembler.wb_directives.ENDIF">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.ENDIF.abbrev">ENDIF - conditional assembly</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.ENDIF"><p>Conditional assembly includes a set of commands at assembly time. The
+  ENDIF directive defines the end for the conditional IF or IFDEF or IFNDEF
+  directives.</p><p>Conditionals (.IF...ELIF...ELSE...ENDIF blocks) may be nested, but all
+  conditionals must be terminated at the end of file (conditionals may not
+  span multiple files).</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.ENDIF</p><p>.IFDEF &lt;symbol&gt; |.IFNDEF &lt;symbol&gt;</p><p>…</p><p>.ELSE | .ELIF&lt;expression&gt;</p><p>…</p><p>.ENDIF</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.IFNDEF DEBUG 
+.MESSAGE "Release.." 
+.ELSE 
+.MESSAGE "Debugging.." 
+.ENDIF</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.ENDIF"></a><a id="avrassembler.wb_directives.ENDMACRO">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.ENDMACRO.abbrev">ENDM, ENDMACRO - End macro</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.ENDM"></a><a class="indexterm" id="VsIde.Assembler.Directives.ENDMACRO"><p>The ENDMACRO directive defines the end of a macro definition. The
+  directive does not take any parameters. See the MACRO directive for more
+  information on defining macros. ENDM is an alternative form, fully
+  equivalent with ENDMACRO.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.ENDMACRO</p><p>.ENDM</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.MACRO SUBI16 ; Start macro definition 
+subi r16,low(@0) ; Subtract low byte 
+sbci r17,high(@0) ; Subtract high byte 
+.ENDMACRO</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.ENDMACRO"></a><a id="avrassembler.wb_directives.EQU">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.EQU.abbrev">EQU - Set a symbol equal to an expression</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.EQU"><p>The EQU directive assigns a value to a label. This label can then be
+  used in later expressions. A label assigned to a value by the EQU directive
+  is a constant and can not be changed or redefined.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.EQU label = expression</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.EQU io_offset = 0x23 
+.EQU porta = io_offset + 2.CSEG ; Start code segment 
+clr r2 ; Clear register 2 
+out porta,r2 ; Write to Port A</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.EQU"></a><a id="avrassembler.wb_directives.ERROR">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.ERROR.abbrev">ERROR- Outputs an error message string</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.ERROR"><p>The ERROR directive outputs a string and halts the assembling. May be
+  used in conditional assembly.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.ERROR "&lt;string&gt;"</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.IFDEF TOBEDONE 
+.ERROR "Still stuff to be done.." 
+.ENDIF</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.ERROR"></a><a id="avrassembler.wb_directives.WARNING">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.WARNING.abbrev">WARNING - Outputs a warning message
+  string</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.WARNING"><p>The .WARNING directive outputs a warning string, but unlike the .ERROR
+  directive does not halt assembling. May be used in conditional
+  assembly.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.WARNING"&lt;string&gt;"</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.IFDEF EXPERIMENTAL_FEATURE 
+.WARNING "This is not properly tested, use at own risk." 
+.ENDIF</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.WARNING"></a><a id="avrassembler.wb_directives.ESEG">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.ESEG.abbrev">ESEG - EEPROM Segment</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.ESEG"><p>The ESEG directive defines the start of an EEPROM segment. An
+  assembler source file can consist of several EEPROM segments, which are
+  concatenated into a single EEPROM segment when assembled. An EEPROM segment
+  will normally only consist of DB and DW directives (and labels). The EEPROM
+  segments have their own location counter which is a byte counter. The ORG
+  directive can be used to place the variables at specific locations in the
+  EEPROM. The directive does not take any parameters.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.ESEG</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.DSEG ; Start data segment 
+var1: .BYTE 1 ; reserve 1 byte to var1 
+table: .BYTE tab_size ; reserve tab_size bytes.
+
+.ESEG 
+eevar1: .DW 0xffff ; initialize 1 word in EEPROM</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.ESEG"></a><a id="avrassembler.wb_directives.EXIT">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.EXIT.abbrev">EXIT - Exit this file</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.EXIT"><p>The EXIT directive tells the Assembler to stop assembling the file.
+  Normally, the Assembler runs until end of file (EOF). If an EXIT directive
+  appears in an included file, the Assembler continues from the line following
+  the INCLUDE directive in the file containing the INCLUDE directive.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.EXIT</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.EXIT ; Exit this file</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.EXIT"></a><a id="avrassembler.wb_directives.INCLUDE">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.INCLUDE.abbrev">INCLUDE - Include another file</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.INCLUDE"><p>The INCLUDE directive tells the Assembler to start reading
+  from a specified file. The Assembler then assembles the specified
+  file until end of file (EOF) or an EXIT directive is encountered. An
+  included file may itself contain INCLUDE directives. The difference
+  between the two forms is that the first searches the current
+  directory first, the second does not.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.INCLUDE "filename"</p><p>.INCLUDE &lt;filename&gt;</p><p>
+      <span class="bold"><strong>Example:</strong></span> 
+      </p><pre class="programlisting">; iodefs.asm: 
+.EQU sreg = 0x3f ; Status register 
+.EQU sphigh = 0x3e ; Stack pointer high 
+.EQU splow = 0x3d ; Stack pointer low
+
+; incdemo.asm 
+.INCLUDE iodefs.asm ; Include I/O definitions 
+in r0,sreg ; Read status register</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.INCLUDE"></a><a id="avrassembler.wb_directives.IFDEF">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.IFDEF.abbrev">IF,IFDEF,IFNDEF - conditional assembly</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.IF"></a><a class="indexterm" id="VsIde.Assembler.Directives.IFDEF"></a><a class="indexterm" id="VsIde.Assembler.Directives.IFNDEF"><p>Conditional assembly includes a set of commands at assembly time. The
+  IFDEF directive will include code till the corresponding ELSE directive if
+  &lt;symbol&gt; is defined. The symbol must be defined with the EQU or SET
+  directive. (Will not work with the DEF directive) The IF directive will
+  include code if &lt;expression&gt; is evaluated different from 0. Valid till
+  the corresponding ELSE or ENDIF directive.</p><p>Up to 5 levels of nesting is possible.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.IFDEF &lt;symbol&gt;</p><p>.IFNDEF &lt;symbol&gt;</p><p>.IF &lt;expression&gt;</p><p>.IFDEF &lt;symbol&gt; |.IFNDEF &lt;symbol&gt;</p><p>…</p><p>.ELSE | .ELIF&lt;expression&gt;</p><p>…</p><p>.ENDIF</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.MACRO SET_BAT 
+.IF @0&gt;0x3F 
+.MESSAGE "Address larger than 0x3f" 
+lds @2, @0 
+sbr @2, (1&lt;&lt;@1) 
+sts @0, @2 
+.ELSE 
+.MESSAGE "Address less or equal 0x3f" 
+.ENDIF 
+.ENDMACRO</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.IFNDEF"></a><a id="avrassembler.wb_directives.LIST">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.LIST.abbrev">LIST - Turn the listfile generation on</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.LIST"><p>The LIST directive tells the Assembler to turn listfile generation on.
+  The Assembler generates a listfile which is a combination of assembly source
+  code, addresses and opcodes. Listfile generation is turned on by default.
+  The directive can also be used together with the NOLIST directive in order
+  to only generate listfile of selected parts of an assembly source
+  file.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.LIST</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.NOLIST ; Disable listfile generation 
+.INCLUDE "macro.inc" ; The included files will not 
+.INCLUDE "const.def" ; be shown in the listfile 
+.LIST ; Reenable listfile generation</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.LIST"></a><a id="avrassembler.wb_directives.LISTMAC">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.LISTMAC.abbrev">LISTMAC - Turn macro expansion on</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.LISTMAC"><p>The LISTMAC directive tells the Assembler that when a macro is called,
+  the expansion of the macro is to be shown on the listfile generated by the
+  Assembler. The default is that only the macro-call with parameters is shown
+  in the listfile.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.LISTMAC</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.MACRO MACX ; Define an example macro 
+add r0,@0 ; Do something 
+eor r1,@1 ; Do something 
+.ENDMACRO ; End macro definition
+
+.LISTMAC ; Enable macro expansion 
+
+MACX r2,r1 ; Call macro, show expansion</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.LISTMAC"></a><a id="avrassembler.wb_directives.MACRO">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.MACRO.abbrev">MACRO - Begin macro</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.MACRO"><p>The MACRO directive tells the Assembler that this is the start of a
+  Macro. The MACRO directive takes the Macro name as parameter. When the name
+  of the Macro is written later in the program, the Macro definition is
+  expanded at the place it was used. A Macro can take up to 10 parameters.
+  These parameters are referred to as @0-@9 within the Macro definition. When
+  issuing a Macro call, the parameters are given as a comma separated list.
+  The Macro definition is terminated by an ENDMACRO directive.</p><p>By default, only the call to the Macro is shown on the listfile
+  generated by the Assembler. In order to include the macro expansion in the
+  listfile, a LISTMAC directive must be used. A macro is marked with a + in
+  the opcode field of the listfile.</p><p>
+      <span class="bold"><strong> Syntax:</strong></span>
+   </p><p>.MACRO macroname</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.MACRO SUBI16 ; Start macro definition 
+subi @1,low(@0) ; Subtract low byte 
+sbci @2,high(@0) ; Subtract high byte 
+.ENDMACRO ; End macro definition
+
+.CSEG ; Start code segment 
+SUBI16 0x1234,r16,r17 ; Sub.0x1234 from r17:r16</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.MACRO"></a><a id="avrassembler.wb_directives.MESSAGE">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.MESSAGE.abbrev">MESSAGE - Output a message string</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.MESSAGE"><p>The MESSAGE directive outputs a string. Useful in conditional
+  assembly.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.MESSAGE "&lt;string&gt;"</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.IFDEF DEBUG
+.MESSAGE "Debug mode"
+.ENDIF</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.MESSAGE"></a><a id="avrassembler.wb_directives.NOLIST">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.NOLIST.abbrev">NOLIST - Turn listfile generation off</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.NOLIST"><p>The NOLIST directive tells the Assembler to turn listfile generation
+  off. The Assembler normally generates a listfile which is a combination of
+  assembly source code, addresses and opcodes. Listfile generation is turned
+  on by default, but can be disabled by using this directive. The directive
+  can also be used together with the LIST directive in order to only generate
+  listfile of selected parts of an assembly source file.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.NOLIST</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.NOLIST ; Disable listfile generation 
+.INCLUDE "macro.inc" ; The included files will not 
+.INCLUDE "const.def" ; be shown in the listfile 
+.LIST ; Reenable listfile generation</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.NOLIST"></a><a id="avrassembler.wb_directives.ORG">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.ORG.abbrev">ORG - Set program origin</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.ORG"><p>The ORG directive sets the location counter to an absolute value. The
+  value to set is given as a parameter. If an ORG directive is given within a
+  Data Segment, then it is the SRAM location counter which is set, if the
+  directive is given within a Code Segment, then it is the Program memory
+  counter which is set and if the directive is given within an EEPROM Segment,
+  it is the EEPROM location counter which is set.</p><p>The default values of the Code and the EEPROM location counters are
+  zero, and the default value of the SRAM location counter is the address
+  immediately following the end of I/O address space (0x60 for devices without
+  extended I/O, 0x100 or more for devices with extended I/O) when the
+  assembling is started. Note that the SRAM and EEPROM location counters count
+  bytes whereas the Program memory location counter counts words. Also note
+  that some devices lack SRAM and/or EEPROM.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.ORG expression</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.DSEG ; Start data segment
+.ORG 0x120; Set SRAM address to hex 120 
+variable: .BYTE 1 ; Reserve a byte at SRAM adr. 0x120
+
+.CSEG 
+.ORG 0x10 ; Set Program Counter to hex 10 
+mov r0,r1 ; Do something</pre><p>
+   </p></a><h2><a class="indexterm" id="VsIde.Assembler.Directives.ORG"></a><a id="avrassembler.wb_directives.SET">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.SET.abbrev">SET - Set a symbol equal to an expression</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.SET"></a><p><a class="indexterm" id="VsIde.Assembler.Directives.SET">The SET directive assigns a value to a label. This label can then be
+  used in later expressions. Unlike the </a><a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.EQU" title="EQU - Set a symbol equal to an expression">EQU</a>
+  directive, a label assigned to a value by the SET directive can be changed
+  (redefined) later in the program.</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.SET label = expression</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.SET FOO = 0x114; set FOO to point to an SRAM location 
+lds r0, FOO; load location into r0 
+.SET FOO = FOO + 1 ; increment (redefine) FOO. This would be illegal if using .EQU 
+lds r1, FOO ; load next location into r1</pre><p>
+   </p><h2><a id="avrassembler.wb_directives.OVERLAP">
+      <abbr class="abbrev"></abbr></a><a id="avrassembler.wb_directives.OVERLAP.abbrev">OVERLAP/NOOVERLAP - Set up overlapping section</a></h2><a class="indexterm" id="VsIde.Assembler.Directives.OVERLAP"></a><a class="indexterm" id="VsIde.Assembler.Directives.NOOVERLAP"><p>Introduced in AVRASM 2.1. These directives are for projects with
+  special needs and should normally not be used.</p></a><p><a class="indexterm" id="VsIde.Assembler.Directives.NOOVERLAP">These directives only affect the currently active segment (</a><a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.CSEG" title="CSEG - Code segment">CSEG</a>/<a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.DSEG" title="DSEG - Data Segment">DSEG</a>/<a class="link" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html#avrassembler.wb_directives.ESEG" title="ESEG - EEPROM Segment">ESEG</a>).</p><p>The .overlap/nooverlap directives mark a section that will be allowed
+  to overlap code/data with code/data defined elsewhere, without any error or
+  warning messages being generated. This is totally independent of what is set
+  using the <a class="xref" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.pragma.html" title="#pragma, general purpose">#pragma</a> directives. The overlap-allowed
+  attribute will stay in effect across .org directives, but will not follow
+  across .cseg/.eseg/.dseg directives (each segment marked separately).</p><p>
+      <span class="bold"><strong>Syntax:</strong></span>
+   </p><p>.OVERLAP</p><p>.NOOVERLAP</p><p>
+      <span class="bold"><strong>Example:</strong></span>
+      </p><pre class="programlisting">.overlap 
+.org 0 ; section #1 
+rjmp default 
+.nooverlap 
+.org 0 ; section #2 
+rjmp RESET ; No error given here 
+.org 0 ; section #3 
+rjmp RESET ; Error here because overlap with #2</pre><p>
+   </p><p>The typical use of this is to set up some form of default code or data
+  that may or may not later be modified by overlapping code or data, without
+  having to disable assembler overlap detection altogether.</p></div><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/main.js" type="text/javascript"><!----></script><script src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/splitterInit.js" type="text/javascript"><!----></script><div class="navfooter"><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_Syntax.html">Prev</a>&nbsp;</td><td align="center" width="20%">&nbsp;</td><td align="right" width="40%">&nbsp;<a accesskey="n" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.html">Next</a></td></tr><tr><td align="left" width="40%" valign="top">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="http://www.atmel.com/webdoc/avrassembler/index.html">Home</a></td><td align="right" width="40%" valign="top">&nbsp;</td></tr></tbody></table></div></div><div id="sidebar" style="position: absolute; margin: 0px; left: 0px; right: auto; top: 99px; bottom: 0px; height: 660px; z-index: 0; width: 280px; display: block; visibility: visible;" class="ui-layout-pane ui-layout-pane-west"><div style="padding-top:3px;" id="leftnavigation"><div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all"><ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a tabindex="1" style="outline:0;" href="#treeDiv"><span class="contentsTab">Contents</span></a></li><li class="ui-state-default ui-corner-top"><a onclick="doSearch()" tabindex="1" style="outline:0;" href="#searchDiv"><span class="searchTab">Search</span></a></li></ul><div id="treeDiv" class="ui-tabs-panel ui-widget-content ui-corner-bottom"><img style="display:none;" id="tocLoading" alt="loading table of contents..." src="Assembler%20directives%20-%20-%20AVR%20Assembler_files/loading.gif"><span class="dochome"><a href="http://www.atmel.com/webdoc/index.html" tabindex="1">Documentation Home</a></span><span class="root"><a href="http://www.atmel.com/webdoc/avrassembler/index.html" tabindex="1">AVR Assembler</a></span><div style="" id="ulTreeDiv"><ul class="filetree treeview" id="tree" style="display: block;"><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/pr01.html">Preface</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_Known_Issues.html">AVR Assembler Known Issues</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_Command_Line_Options.html">AVR Assembler Command Line Options</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_source.html">Assembler source</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_Syntax.html">AVR Assembler Syntax</a></span></li><li id="webhelp-currentid" style="background-color: #D8D8D8;  "><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_directives.html" style="color: black;">Assembler directives</a></span></li><li class="expandable"><div class="hitarea expandable-hitarea"></div><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.html">AVR Assembler Preprocessor</a></span><ul style="display: none;"><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.Introduction.html">Introduction</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.Preprocessor_directives.html">Preprocessor directives</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.define.html">#define</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.undef.html">#undef</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.ifdef.html">#ifdef</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.ifndef.html">#ifndef</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.if.html">#if and #elif</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.else.html">#else</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.endif.html">#endif</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.error.html">#error, #warning and #message</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.include.html">#include</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.pragma.html">#pragma, general purpose</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.pragma_part.html">#pragma , AVR part related</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.empty.html"># (empty directive)</a></span></li><li class="expandable"><div class="hitarea expandable-hitarea"></div><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.Operators.html">Operators</a></span><ul style="display: none;"><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.Stringification.html">Stringification (#)</a></span></li><li class="last"><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.Concatenation.html">Concatenation (##)</a></span></li></ul></li><li class="last"><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_preprocessor.Pre-defined_macros.html">Pre-defined macros</a></span></li></ul></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_expressions.html">Expressions</a></span></li><li class="expandable"><div class="hitarea expandable-hitarea"></div><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_instructions.html">Instruction mnemonics</a></span><ul style="display: none;"><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_instructions.Arithmetic_and_Logic_Instructions.html">Arithmetic
+    and logic instructions</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_instructions.Branch_Instructions.html">Branch
+    Instructions</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_instructions.Data_Transfer_Instructions.html">Data Transfer
+    Instructions</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html">Bit and
+    Bit-test Instructions</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_registers.html">I/O Registers</a></span></li><li class="last"><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_nomenclature.html">Instruction Set Nomenclature:</a></span></li></ul></li><li class="expandable lastExpandable"><div class="hitarea expandable-hitarea lastExpandable-hitarea"></div><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_instruction_list.html">Instructions</a></span><ul style="display: none;"><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ADC.html">
+      ADC - Add with Carry</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ADD.html">
+      ADD - Add without Carry</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ADIW.html">
+      ADIW - Add Immediate to Word</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_AND.html">
+      AND  - Logical AND</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ANDI.html">
+      ANDI - Logical AND with Immediateand</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ASR.html">
+      ASR - Arithmetic Shift Right</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BCLR.html">
+      BCLR - Bit Clear in SREG</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BLD.html"> 
+      BLD - Bit Load from the T Flag in SREG to a Bit in Register.</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRBC.html">
+      BRBC -  Branch if Bit in SREG is Cleared</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRBS.html"> 
+      BRBS -  Branch if Bit in SREG is Set</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRCC.html">
+      BRCC -  Branch if Carry Cleared</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRCS.html"> 
+      BRCS -  Branch if Carry Set</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BREAK.html"> 
+      BREAK -  Break</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BREQ.html"> 
+      BREQ -  Branch if Equal</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRGE.html"> 
+      BRGE - Branch if Greater or Equal Signed)</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRHC.html"> 
+      BRHC -  Branch if Half Carry Flag is Cleared</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRHS.html"> 
+      BRHS - Branch if Half Carry Flag is Set</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRID.html">
+      BRID -  Branch if Global Interrupt is Disabled</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRIE.html">
+      BRIE - Branch if Global Interrupt is Enabled</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRLO.html">
+      BRLO  - Branch if Lower (Unsigned)</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRLT.html"> 
+      BRLT  -  Branch if Less Than (Signed)</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRMI.html">
+      BRMI  - Branch if Minus</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRNE.html">
+      BRNE  - Branch if Not Equal</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRPL.html">
+      BRPL  - Branch if Plus</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRSH.html">
+      BRSH  - Branch if Same or Higher (Unsigned)</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRTC.html">
+      BRTC  -  if the T Flag is Cleared</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRTS.html">
+      BRTS  - Branch if the T Flag is Set</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRVC.html">
+      BRVC  - Branch if Overflow Cleared</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BRVS.html">
+      BRVS  - Branch if Overflow Set</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BSET.html">
+      BSET - Bit Set in SREG</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_BST.html">
+      BST  - Bit Store from Bit in Register to T Flag in SREG</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CALL.html">
+      CALL  - Long Call to a Subroutine</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CBI.html">
+      CBI - Clear Bit in I/O Register</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CBR.html">
+      CBR  - Clear Bits in Register</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CLC.html">
+      CLC  - Clear Carry Flag</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CLH.html">
+      CLH - Clear Half Carry Flag</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CLI.html">
+      CLI  - Clear Global Interrupt Flag</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CLN.html">
+      CLN  - Clear Negative Flag </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CLR.html">
+      CLR - Clear Register </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CLS.html">
+      CLS - Clear Signed Flag</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CLT.html">
+      CLT  - Clear T Flag</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CLV.html">
+      CLV - Clear Overflow Flag
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CLZ.html">
+      CLZ  - Clear Zero Flag</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_COM.html">
+      COM- One's Complement</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CP.html">
+      CP- Compare
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CPC.html">
+      CPC- Compare with Carry
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CPI.html">
+      CPI- Compare with Immediate
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_CPSE.html">
+      CPSE- Compare Skip if Equal
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_DEC.html">
+      DEC- Decrement
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_EICALL.html">
+      EICALL  - Extended Indirect Call to Subroutine
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_EIJMP.html">
+      EIJMP - Extended Indirect Jump
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ELPM.html">
+      ELPM - Extended Load Program Memory
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_EOR.html">
+      EOR - Exclusive OR
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_FMUL.html">
+      FMUL- Fractional Multiply Unsigned
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_FMULS.html">
+      FMULS - Fractional Multiply Signed
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_FMULSU.html">
+      FMULSU - Fractional Multiply Signed with Unsigned
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ICALL.html">
+      ICALL - Indirect Call to Subroutine
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_IJMP.html">
+      IJMP - Indirect Jump
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_IN.html">
+      IN - Load an I/O Location to Register
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_INC.html">
+      INC- Increment
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_JMP.html">
+      JMP - Jump
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LD.html">
+      LD - Load Indirect from data space to Register using Index X
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LAT.html">
+      LAT - Load and Toggle</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LAS.html">
+      LAS - Load and Set</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LAC.html">
+      LAC - Load and Clear</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LDD.html">
+      LD (LDD)- Load Indirect from data space
+  to Register using Index Y</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LDD_Z.html">
+      LD (LDD) - Load Indirect From data
+  space to Register using Index Z</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LDI.html">
+      LDI - Load Immediate
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LDS.html">
+      LDS - Load Direct from data space</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LDS_-_Load_direct_from_SRAM.html">
+      LDS - Load Direct from SRAM</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LPM.html">
+      LPM - Load Program Memory
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LSL.html">
+      LSL- Logical Shift Left</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_LSR.html">
+      LSR- Logical Shift Right
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_MOV.html">
+      MOV - Copy Register
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_MOVW.html">
+      MOVW - Copy Register Word
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_MUL.html">
+      MUL- Multiply Unsigned
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_MULS.html">
+      MULS - Multiply Signed
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_MULSU.html">
+      MULSU - Multiply Signed with Unsigned
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_NEG.html">
+      NEG- Two's Complement
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_NOP.html">
+      NOP - No Operation
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_OR.html">
+      OR- Logical OR
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ORI.html">
+      ORI- Logical OR with Immediate
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_OUT.html">
+      OUT - Store Register to I/O Location</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_POP.html">
+      POP - Pop Register from Stack</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_PUSH.html">
+      PUSH - Push Register on Stack
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_RCALL.html">
+      RCALL - Relative Call to Subroutine
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_RET.html">
+      RET - Return from Subroutine
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_RETI.html">
+      RETI - Return from Interrupt
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_RJMP.html">
+      RJMP- Relative Jump
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ROL.html">
+      ROL- Rotate Left trough Carry</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ROR.html">
+      ROR- Rotate Right through Carry</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SBC.html">
+      SBC- Subtract with Carry
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SBCI.html">
+      SBCI- Subtract Immediate with Carry
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SBI.html">
+      SBI - Set Bit in I/O Register
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SBIC.html">
+      SBIC - Skip if Bit in I/O Register is Cleared
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SBIS.html">
+      SBIS - Skip if Bit in I/O Register is Set
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SBIW.html">
+      SBIW - Subtract Immediate from Word</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SBR.html">
+      SBR- Set Bits in Register
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SBRC.html">
+      SBRC - Skip if Bit in Register is Cleared
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SBRS.html">
+      SBRS - Skip if Bit in Register is Set
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SEC.html">
+      SEC - Set Carry Flag
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SEH.html">
+      SEH - Set Half Carry Flag
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SEI.html">
+      SEI - Set Global Interrupt Flag</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SEN.html">
+      SEN - Set Negative Flag
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SER.html">
+      SER  - Set all bits in Register
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SES.html">
+      SES  - Set Signed Flag
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SET.html">
+      SET  - Set T Flag
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SEV.html">
+      SEV - Overflow Flag</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SEZ.html">
+      SEZ  - Set Zero Flag
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SLEEP.html">
+      SLEEP- Sleep mode
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SPM.html">
+      SPM  - Store Program Memory</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_ST.html">
+      ST  - Store Indirect From Register to data space using Index X
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_STD.html">ST (STD) - Store Indirect From Register to data space using Index Y</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_STD_Z.html">
+      ST (STD) - Store Indirect From
+  Register to data space using Index Z</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_STS.html">
+      STS  - Store Direct to data space
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_STS_-_Store_Direct_to_SRAM.html">
+      STS - Store
+  Direct to SRAM</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SUB.html">
+      SUB- Subtract without Carry
+</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SUBI.html">
+      SUBI- Subtract Immediate
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_SWAP.html">
+      SWAP  - Swap Nibbles
+  </a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_TST.html">
+      TST- Test for Zero or Minus</a></span></li><li><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_WDR.html">
+      WDR - Watchdog Reset
+</a></span></li><li class="last"><span class="file"><a tabindex="1" href="http://www.atmel.com/webdoc/avrassembler/avrassembler.wb_XCH.html">
+      XCH - Exchange</a></span></li></ul></li></ul></div></div><div id="searchDiv" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide"><div id="search"><form class="searchForm" name="searchForm" onsubmit="Verifie(searchForm);return false"><div><input tabindex="1" class="searchText" placeholder="Search" name="textToSearch" id="textToSearch" type="search"> &nbsp; <input tabindex="1" id="doSearch" value="Go" class="searchButton" onclick="Verifie(searchForm)" type="button"></div></form></div><div id="searchResults"><center></center></div><p class="searchHighlight"><a onclick="toggleHighlight()" href="#">Search Highlighter (On/Off)</a></p></div></div></div></div><div id="header-resizer" style="position: absolute; padding: 0px; margin: 0px; font-size: 1px; text-align: left; overflow: hidden; z-index: 2; top: 99px; cursor: default; display: none;" class="ui-layout-resizer ui-layout-resizer-north ui-layout-resizer-open ui-layout-resizer-north-open"><div id="header-toggler" style="position: absolute; display: block; padding: 0px; margin: 0px; overflow: hidden; text-align: center; font-size: 1px; cursor: pointer; z-index: 1; visibility: visible;" class="ui-layout-toggler ui-layout-toggler-north ui-layout-toggler-open ui-layout-toggler-north-open" title="Close"></div></div><div id="sidebar-resizer" style="position: absolute; padding: 0px; margin: 0px; font-size: 1px; text-align: left; overflow: hidden; z-index: 2; cursor: w-resize; left: 280px; height: 660px; width: 4px; top: 99px;" class="ui-layout-resizer ui-layout-resizer-west ui-layout-resizer-open ui-layout-resizer-west-open" title="Resize" aria-disabled="false"><div id="sidebar-toggler" style="position: absolute; display: block; padding: 0px; margin: 0px; overflow: hidden; text-align: center; font-size: 1px; cursor: pointer; z-index: 1; visibility: visible; height: 50px; width: 4px; top: 305px; left: 0px;" class="ui-layout-toggler ui-layout-toggler-west ui-layout-toggler-open ui-layout-toggler-west-open" title="Close"></div></div></body></html>
