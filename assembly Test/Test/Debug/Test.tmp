@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Users\parham\Documents\Atmel Studio\7.0\Test\Test\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\parham\Documents\Atmel Studio\7.0\Test\Test\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.150\avrasm\inc\m16adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\parham\Documents\Atmel Studio\7.0\Test\Test\Debug\Test.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Test.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Test.map</FILE>
+  <FILE>Test.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <number><FILE>C:\Users\parham\Documents\Atmel Studio\7.0\Test\Test\main.asm</FILE><LINE>9</LINE></number>
+  <Main><FILE>C:\Users\parham\Documents\Atmel Studio\7.0\Test\Test\main.asm</FILE><LINE>17</LINE></Main>
+  <cn><FILE>C:\Users\parham\Documents\Atmel Studio\7.0\Test\Test\main.asm</FILE><LINE>37</LINE></cn>
+  <Loop><FILE>C:\Users\parham\Documents\Atmel Studio\7.0\Test\Test\main.asm</FILE><LINE>32</LINE></Loop>
+ </LABELS>
+</ASSEMBLER_INFO>
